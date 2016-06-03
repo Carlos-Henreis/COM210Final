@@ -56,7 +56,7 @@ Route::group(['prefix'=>'associado'], function() {
 
 });
 
-//rotas atendente CRUDS
+//rotas atendente CRUDS (Todas estão corretas)
 Route::group(['prefix'=>'atendente/cruds'], function() {
 	//Rotas protegidas(somente o presidente entra)
 	Route::group(['middleware' => 'auth:presidente'], function() {

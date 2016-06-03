@@ -54,7 +54,7 @@ class AtendenteController extends Controller
             return redirect ('/atendente/login');
     }
 
-    //CRUDS
+    //CRUDS, ainda está com problemas nesse, senha não está sendo criptografada antes de persistir no banco, acho que isso deve ocorrer na View (Se der da uma olhada para arrumar isso)
 
     public function index1 () {
         $atendente = Atendente::all();

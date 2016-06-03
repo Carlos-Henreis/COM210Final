@@ -21,6 +21,8 @@ class AtendenteRequest extends Request
      *
      * @return array
      */
+
+    //Request adiciondo
     public function rules()//Os dados estão de forma adequda
     {
         return [
