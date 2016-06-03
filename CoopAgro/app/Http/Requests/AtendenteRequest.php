@@ -27,9 +27,14 @@ class AtendenteRequest extends Request
     {
         return [
             'name' => 'required',
-            'cpf' => 'required',
+            'email' => 'required',
+            'senha' => 'required | min: 6',
+            'cpf' => 'required | min: 11 | max:11',
             'nascimento' => 'required',
-            'email' => 'required'
+            'sexo' => 'required | max: 1',
+            'salario' => 'required',
+            'telefone' => 'required | min:10 | max: 12',
+            'endereco' => 'required'
         ];
     }
 }
