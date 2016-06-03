@@ -60,12 +60,12 @@ Route::group(['prefix'=>'associado'], function() {
 Route::group(['prefix'=>'atendente/cruds'], function() {
 	//Rotas protegidas(somente o presidente entra)
 	Route::group(['middleware' => 'auth:presidente'], function() {
-		Route::get('', ['as' => 'atendente.cruds', 'uses' => 'atendenteController@index1']);
-	    Route::get('create', ['as' => 'atendente.cruds.create', 'uses' => 'atendenteController@create']);
-	    Route::post('store', ['as' => 'atendente.cruds.store', 'uses' => 'atendenteController@store']);
-	    Route::get('{id}/destroy', ['as' => 'atendente.cruds.destroy', 'uses' => 'atendenteController@destroy']);
-	    Route::get('{id}/edit', ['as' => 'atendente.cruds.edit', 'uses' => 'atendenteController@edit']);
-	    Route::put('{id}/update', ['as' => 'atendente.cruds.update', 'uses' => 'atendenteController@update']);
+		Route::get('', ['as' => 'atendente.cruds', 'uses' => 'AtendenteController@index1']);
+	    Route::get('create', ['as' => 'atendente.cruds.create', 'uses' => 'AtendenteController@create']);
+	    Route::post('store', ['as' => 'atendente.cruds.store', 'uses' => 'AtendenteController@store']);
+	    Route::get('{id}/destroy', ['as' => 'atendente.cruds.destroy', 'uses' => 'AtendenteController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'atendente.cruds.edit', 'uses' => 'AtendenteController@edit']);
+	    Route::put('{id}/update', ['as' => 'atendente.cruds.update', 'uses' => 'AtendenteController@update']);
 	});
 });
 
