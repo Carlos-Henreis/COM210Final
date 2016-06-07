@@ -31,7 +31,6 @@ class AtendenteController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        dd($validator);
         if ($validator->fails()) {
              return redirect('/atendente/login')
                         ->withErrors($validator)

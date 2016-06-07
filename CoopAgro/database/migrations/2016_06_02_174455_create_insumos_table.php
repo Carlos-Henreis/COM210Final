@@ -13,8 +13,18 @@ class CreateInsumosTable extends Migration
     public function up()
     {
         Schema::create('insumos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+         $table->increments('id');
+         $table->string('nome', 256);
+         $table->text('descricao');
+         $table->date('dataValidacao');
+         $table->date('dataEntrada');
+         $table->date('dataSolicitacao');
+         $table->decimal('quantidade', 4, 0);
+         $table->enum('tiposDisponiveis', ['sementes', 'defensivos agricolas', 'adubos']);
+         $table->double('valorUnitario', 6, 2);
+         $table->rememberToken();
+         $table->timestamps();
+
         });
     }
 

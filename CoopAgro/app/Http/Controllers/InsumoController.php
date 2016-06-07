@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\insumo;
 use App\Http\Requests;
 
 class InsumoController extends Controller
@@ -13,6 +13,10 @@ class InsumoController extends Controller
     }
 
     public function index () {
-    	return view('insumo.index');
+    	$insumos = insumo::all();
+    	return view('insumo.cruds.index', ['insumo' => $insumos]);
+    }
+    public function create(){
+    	return view('insumo.cruds.create');
     }
 }
