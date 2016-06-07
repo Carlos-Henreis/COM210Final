@@ -9,7 +9,6 @@
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Data de Validação</th>
@@ -23,7 +22,6 @@
         <tbody>
             @foreach($insumo as $insumo)
             <tr>
-                <td>{{ $insumo->id }}</td>
                 <td>{{ $insumo->nome }}</td>
                 <td>{{ $insumo->descricao }}</td>
                 <td>{{ $insumo->dataValidacao }}</td>

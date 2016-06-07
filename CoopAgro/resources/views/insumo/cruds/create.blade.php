@@ -8,21 +8,18 @@
             <div class="panel-heading">Novo Insumo</div>
             <div class="panel-body">
 
-		
-				 {!! Form::open(['route'=>'insumo.cruds.store']) !!}
+		  <form class="form-horizontal" role="form" method="POST" action="{{ url('/insumo/cruds/store') }}">
+                        {{ csrf_field() }}
 
-
-				 <!-- Descricao Form Input -->
-
-		 		<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+		 		<div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Nome</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="nome" value="{{ old('nome') }}">
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('nome'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('nome') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -71,17 +68,17 @@
                             </div>
                         </div>
 
-
-                <label class="col-md-4 control-label">Tipos Disponiveis</label>
-		 				<div class="col-md-6">
-		 		 			<select class="form-control" name="tiposDisponiveis" value="{{old('tiposDisponiveis') }}">
-    						<option></option>
-   							<option>Sementes</option>
-   							<option>Defensivos Agricolas</option>
-    						<option>Adubos</option>
-  						</select>	 			 
-		 			
-		 		</div> 
+                <div class="form-group{{ $errors->has('tiposDisponiveis') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Tipos Disponiveis</label>
+		 				     <div class="col-md-6">
+    		 		 			<select class="form-control" name="tiposDisponiveis" value="{{old('tiposDisponiveis') }}">
+        						<option></option>
+       							<option>Sementes</option>
+       							<option>Defensivos Agricolas</option>
+        						<option>Adubos</option>
+      						</select>	 			 	
+    		 		       </div> 
+                </div>
 
 		 		<div class="form-group{{ $errors->has('valorUnitario') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Valor Unitário</label>
@@ -110,10 +107,12 @@
                             </div>
                         </div>
 
-		 		<div class="form-group">
-  							<label class="col-md-4 control-label">Descrição</label>
-  							<textarea class="form-control" rows="5" id="descricao"></textarea>
-				</div>
+                <div class="form-group{{ $errors->has('descricao') ? ' has-error' : '' }}">
+  						    <label class="col-md-4 control-label">Descrição</label>
+                            <div class="col-md-6">
+  							    {!! Form::textarea('descricao',  null, ['class'=>'form-control']) !!}
+				            </div>
+                        </div>
 
 		 		<div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -123,7 +122,8 @@
                             </div>
                         </div>
 
-		 		{!! Form::close() !!}
+            </form>
+
 		 	</div>
 		 </div>
 	</div>
