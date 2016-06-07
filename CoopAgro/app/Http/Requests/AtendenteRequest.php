@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\atendentes;
 
 class AtendenteRequest extends Request
 {
@@ -25,13 +26,14 @@ class AtendenteRequest extends Request
     //Request adiciondo
     public function rules()//Os dados estão de forma adequda
     {
+
         return [
             'name' => 'required',
-            'email' => 'required',
-            'senha' => 'required | min: 6',
-            'cpf' => 'required | min: 11 | max:11',
-            'nascimento' => 'required',
-            'sexo' => 'required | max: 1',
+            'email' => 'required | unique:atendentes',
+            'password' => 'required | min: 6',
+            'cpf' => 'required | min: 11 | max:11 | unique:atendentes',
+            'nascimento' => 'required | after:date_from: "1998/04/03"',
+            'sexo' => 'required ',
             'salario' => 'required',
             'telefone' => 'required | min:10 | max: 12',
             'endereco' => 'required'
