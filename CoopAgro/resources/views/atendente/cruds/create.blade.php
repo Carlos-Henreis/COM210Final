@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-                        @Hash::make("password");
+                        <!--@Hash::make("password");-->
                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Cpf</label>
 

@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run(){
-    	DB::table('atendentes')->insert([
+    	/*DB::table('atendentes')->insert([
             'name' => 'Atendente Teste',
             'email' => 'carlos_henreis@outlook.com', 
             'password' => Hash::make('qwe123'), 
@@ -46,6 +46,17 @@ class DatabaseSeeder extends Seeder
             'salario' => 23100, 
             'telefone' => 123453233, 
             'endereco' => 'Cruzeiro 231 Itajubá',
+        ]);*/
+        
+        DB::table('associados')->insert([
+            'name' => 'Associado Teste',
+            'cpf' => '88877766655',
+            'rg' => 'mg15444888',
+            'nascimento' => '1980-05-20',
+            'endereco' => 'Rua JK',
+            'telefone' => '03536234567',
+            'email' => 'teste-associado@coopagro.com',
+            'tipo' => 'Agricultura',
         ]);
     }
 }

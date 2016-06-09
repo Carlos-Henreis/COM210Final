@@ -46,12 +46,12 @@ Route::group(['middleware' => 'tecnico'], function() {
 Route::group(['prefix'=>'associado'], function() {
 	//Rotas protegidas(somente o atendente entra)
 	Route::group(['middleware' => 'auth:atendente'], function() {
-		Route::get('',['as'=>'associado', 'uses'=>'AssociadoController@index']);
-		Route::get('create',['as'=>'associado.create', 'uses'=>'AssociadoController@create']);
-		Route::post('store',['as'=>'associado.store', 'uses'=>'AssociadoController@store']);
-		Route::get('{id}/destroy',['as'=>'associado.destroy', 'uses'=>'AssociadoController@destroy']);
-		Route::get('{id}/edit',['as'=>'associado.edit', 'uses'=>'AssociadoController@edit']);
-	 	Route::put('{id}/update',['as'=>'associado.update', 'uses'=>'AssociadoController@update']);
+		Route::get('',['as'=>'associado.crud', 'uses'=>'AssociadoController@index']);
+		Route::get('create',['as'=>'associado.crud.create', 'uses'=>'AssociadoController@create']);
+		Route::post('store',['as'=>'associado.crud.store', 'uses'=>'AssociadoController@store']);
+		Route::get('{id}/destroy',['as'=>'associado.crud.destroy', 'uses'=>'AssociadoController@destroy']);
+		Route::get('{id}/edit',['as'=>'associado.crud.edit', 'uses'=>'AssociadoController@edit']);
+	 	Route::put('{id}/update',['as'=>'associado.crud.update', 'uses'=>'AssociadoController@update']);
 	});
 
 });
