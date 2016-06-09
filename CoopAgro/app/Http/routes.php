@@ -80,6 +80,20 @@ Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function()
 	});
 });
 
+
+//Rotas associados
+Route::group(['prefix'=>'associado'], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('',['as'=>'associado.crud', 'uses'=>'AssociadoController@index']);
+		Route::get('create',['as'=>'associado.crud.create', 'uses'=>'AssociadoController@create']);
+		Route::post('store',['as'=>'associado.crud.store', 'uses'=>'AssociadoController@store']);
+		Route::get('{id}/destroy',['as'=>'associado.crud.destroy', 'uses'=>'AssociadoController@destroy']);
+		Route::get('{id}/edit',['as'=>'associado.crud.edit', 'uses'=>'AssociadoController@edit']);
+	 	Route::put('{id}/update',['as'=>'associado.crud.update', 'uses'=>'AssociadoController@update']);
+	});
+});
+
 //Rotas de um teste para testarmos
 Route::group(['prefix'=>'teste', 'where'=>['id'=>'[0-9]+']], function()
 {
