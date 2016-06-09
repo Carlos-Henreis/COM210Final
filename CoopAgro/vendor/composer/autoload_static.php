@@ -265,11 +265,11 @@ class ComposerStaticInit79b121345c50e1e662daccddfdaf98b5
     );
 
     public static $classMap = array (
-        'CreateAssociadosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_185926_create_associados_table.php',
         'CreateAtendentesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_225627_create_atendentes_table.php',
         'CreateInsumosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_02_174455_create_insumos_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePresidentesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_225600_create_presidentes_table.php',
+        'CreateProducaosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_09_022432_create_producaos_table.php',
         'CreateTecnicosTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_225641_create_tecnicos_table.php',
         'CreateTestesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_24_151046_create_testes_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

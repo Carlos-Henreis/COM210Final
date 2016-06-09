@@ -80,6 +80,7 @@
                         <ul>
                             <li><a href="/associado">Associado</a></li>
                             <li><a href="">Produção</a></li>
+                            <li><a href="/insumo/cruds">Produção</a></li>
                             <li><a href="/insumo/cruds">Insumo</a></li>
                             
                            
