@@ -58,14 +58,14 @@ Route::group(['prefix'=>'atendente/cruds'], function() {
 
 Route::group(['prefix'=>'insumo/cruds', 'where'=>['id'=>'[0-9]+']], function() {
 	//Rotas protegidas(somente o atendente entra)
-	//Route::group(['middleware' => 'auth:atendente'], function() {
+	Route::group(['middleware' => 'auth:atendente'], function() {
 		Route::get('', ['as' => 'insumo.cruds', 'uses' => 'InsumoController@index']);
 	    Route::get('create', ['as' => 'insumo.cruds.create', 'uses' => 'InsumoController@create']);
 	    Route::post('store', ['as' => 'insumo.cruds.store', 'uses' => 'InsumoController@store']);
 	    Route::get('{id}/destroy', ['as' => 'insumo.cruds.destroy', 'uses' => 'InsumoController@destroy']);
 	    Route::get('{id}/edit', ['as' => 'insumo.cruds.edit', 'uses' => 'InsumoController@edit']);
 	    Route::put('{id}/update', ['as' => 'insumo.cruds.update', 'uses' => 'InsumoController@update']);
-	//});
+	});
 });
 
 Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function() {
