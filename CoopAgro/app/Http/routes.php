@@ -6,6 +6,7 @@ Route::get('/', function () {
 
 //Route::get ('/insumo','InsumoController@index');
 //Route::get ('/producao','ProducaoController@index');
+//Route::get ('/requisicao_equipamento','requisicao_equipamentoController@index');
 
 //Rotas para presidente//
 Route::group(['middleware' => 'presidente'], function() {
@@ -77,6 +78,18 @@ Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function()
 	    Route::get('{id}/destroy', ['as' => 'producao.cruds.destroy', 'uses' => 'ProducaoController@destroy']);
 	    Route::get('{id}/edit', ['as' => 'producao.cruds.edit', 'uses' => 'ProducaoController@edit']);
 	    Route::put('{id}/update', ['as' => 'producao.cruds.update', 'uses' => 'ProducaoController@update']);
+	});
+});
+
+Route::group(['prefix'=>'requisicao_equipamento/cruds', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('', ['as' => 'requisicao_equipamento.cruds', 'uses' => 'Requisicao_equipamentoController@index']);
+	    Route::get('create', ['as' => 'requisicao_equipamento.cruds.create', 'uses' => 'Requisicao_equipamentoController@create']);
+	    Route::post('store', ['as' => 'requisicao_equipamento.cruds.store', 'uses' => 'Requisicao_equipamentoController@store']);
+	    Route::get('{id}/destroy', ['as' => 'requisicao_equipamento.cruds.destroy', 'uses' => 'Requisicao_equipamentoController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'requisicao_equipamento.cruds.edit', 'uses' => 'Requisicao_equipamentoController@edit']);
+	    Route::put('{id}/update', ['as' => 'requisicao_equipamento.cruds.update', 'uses' => 'Requisicao_equipamentoController@update']);
 	});
 });
 
