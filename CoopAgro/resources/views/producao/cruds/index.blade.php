@@ -13,6 +13,7 @@
                 <th>Previsão da produção</th>
                 <th>Insumos necessários</th>
                 <th>Observações</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>

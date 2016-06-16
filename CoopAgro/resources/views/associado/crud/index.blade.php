@@ -9,7 +9,6 @@
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>CPF ou CNPJ</th>
                 <th>Tipo</th>
@@ -19,12 +18,10 @@
         <tbody>
             @foreach($associado as $associado)
             <tr>
-                <td>{{ $associado->id }}</td>
                 <td>{{ $associado->name }}</td>
                 <td>{{ $associado->cpf }}</td>
                 <td>{{ $associado->tipo }}</td>
-                <td>
-                    
+                <td>    
                     <a href="{{ route('associado.crud.edit',['id'=>$associado->id]) }}" class="btn-sm btn-success">Editar</a>
                     <a href="{{ route('associado.crud.destroy',['id'=>$associado->id]) }}" class="btn-sm btn-danger">Remover</a>
                     

@@ -16,4 +16,7 @@ class associado extends Model
         'email',
         'tipo'
         ];
+    public function assoProducao () {
+        $this->hasMany('App\producao');
+    }
 }

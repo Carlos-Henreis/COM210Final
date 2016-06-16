@@ -11,6 +11,20 @@
 		  <form class="form-horizontal" role="form" method="POST" action="{{ url('/producao/cruds/store') }}">
                         {{ csrf_field() }}
 
+		 		<div class="form-group{{ $errors->has('cpf-id') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Associado (CPF)</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="cpf-id" value="{{ old('cpf-id') }}">
+
+                                @if ($errors->has('cpf-id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cpf-id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 		 		<div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Tipo</label>
 
