@@ -48,10 +48,26 @@
                 {!! Form::text('email', $associado->email, ['class'=>'form-control']) !!}
             </div>
             
-            <div class="form-group">
-                {!! Form::label('tipo', 'Tipo:') !!}
-                {!! Form::text('tipo', $associado->tipo, ['class'=>'form-control']) !!}
+
+            <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
+                <label class="col-md-4 control-label">Tipo</label>
+
+                <div class="col-md-2">
+                    <select class="form-control" name="tipo" value="{{old('tipo') }}">
+                        <option></option>
+                        <option>Agricultura</option>
+                        <option>Pecuaria</option>
+                        <option>Mista</option>
+                    </select>                
+                    @if ($errors->has('tipo'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('tipo') }}</strong>
+                        </span>
+                    @endif
+                </div>
             </div>
+
+
             
             <div class="form-group">
                 {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}

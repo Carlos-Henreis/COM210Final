@@ -38,7 +38,7 @@ class AssociadoController extends Controller {
         return view('associado.crud.edit', compact('associado'));
     }
     
-    public function update(associadoRequest $request, $id) {
+    public function update(Request $request, $id) {
         $associado = associado::find($id)->update($request->all());
         return redirect()->route('associado.crud');
     }

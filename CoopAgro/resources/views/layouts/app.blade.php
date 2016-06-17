@@ -24,11 +24,12 @@
             margin-right: 6px;
         }
         .rodape {    
-            position:absolute;   
-             bottom:0;    
-             width:100%;    
-             height:30px;       
-             background:#e7e7e7; 
+            position:fixed;  
+            float: left; 
+            bottom:0;    
+            width:100%;    
+            height:30px;       
+            background:#e7e7e7; 
          }
 
     </style>
