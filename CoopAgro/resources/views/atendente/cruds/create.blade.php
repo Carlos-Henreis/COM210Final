@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        @Hash::make("password");
                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Cpf</label>
 
@@ -97,15 +97,18 @@
                         <div class="form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Sexo</label>
 
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="sexo" value="{{ old('sexo') }}">
-
+                            <div class="col-md-2">
+                                <select class="form-control" name="sexo" value="{{old('sexo') }}">
+                                    <option></option>
+                                    <option>M</option>
+                                    <option>F</option>
+                                </select>                
                                 @if ($errors->has('sexo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('sexo') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('sexo') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('salario') ? ' has-error' : '' }}">

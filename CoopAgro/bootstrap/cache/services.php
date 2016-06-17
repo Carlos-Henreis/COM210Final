@@ -22,11 +22,13 @@
     18 => 'Illuminate\\Translation\\TranslationServiceProvider',
     19 => 'Illuminate\\Validation\\ValidationServiceProvider',
     20 => 'Illuminate\\View\\ViewServiceProvider',
-    21 => 'App\\Providers\\AppServiceProvider',
-    22 => 'App\\Providers\\AuthServiceProvider',
-    23 => 'App\\Providers\\EventServiceProvider',
-    24 => 'App\\Providers\\RouteServiceProvider',
-    25 => 'Illuminate\\Html\\HtmlServiceProvider',
+    21 => 'Illuminate\\Html\\HtmlServiceProvider',
+    22 => 'Collective\\Html\\HtmlServiceProvider',
+    23 => 'App\\Providers\\AppServiceProvider',
+    24 => 'App\\Providers\\AuthServiceProvider',
+    25 => 'App\\Providers\\EventServiceProvider',
+    26 => 'App\\Providers\\RouteServiceProvider',
+    27 => 'Illuminate\\Html\\HtmlServiceProvider',
   ),
   'eager' => 
   array (
@@ -131,6 +133,8 @@
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'html' => 'Illuminate\\Html\\HtmlServiceProvider',
     'form' => 'Illuminate\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
   ),
   'when' => 
   array (
@@ -171,6 +175,9 @@
     array (
     ),
     'Illuminate\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
+    'Collective\\Html\\HtmlServiceProvider' => 
     array (
     ),
   ),

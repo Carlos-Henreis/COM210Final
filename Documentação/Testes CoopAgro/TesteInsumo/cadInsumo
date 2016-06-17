@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8000/" />
+<title>CadInsumo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CadInsumo</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Área Atendente</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Insumo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cadastrar Insumo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=nome</td>
+	<td>Semente de feijão</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=dataSolicitacao</td>
+	<td>2016-04-04</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=dataEntrada</td>
+	<td>2016-04-05</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=dataValidacao</td>
+	<td>2016-04-06</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=tiposDisponiveis</td>
+	<td>label=Sementes</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=valorUnitario</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=quantidade</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=descricao</td>
+	<td>Sementes de feijão destinadas ao plantio.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

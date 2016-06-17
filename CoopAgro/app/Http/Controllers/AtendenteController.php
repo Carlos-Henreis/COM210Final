@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Requests\AtendenteRequest;
 use App\Http\Controllers\Controller;
 use App\Atendente;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 
 class AtendenteController extends Controller
@@ -31,7 +33,6 @@ class AtendenteController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        dd($validator);
         if ($validator->fails()) {
              return redirect('/atendente/login')
                         ->withErrors($validator)
@@ -67,9 +68,11 @@ class AtendenteController extends Controller
     
     public function store(AtendenteRequest $request) {
         $input = $request->all();
+        $input['password'] = bcrypt($request['password']);
         Atendente::create($input);
         return redirect()->route('atendente.cruds');
     }
+
     
     public function destroy($id) {
         $atendente = Atendente::find($id);

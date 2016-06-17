@@ -79,10 +79,10 @@
                     <div class="panel-body">
                         <ul>
                             <li><a href="/associado">Associado</a></li>
-                            <li><a href="">Produção</a></li>
-                            <li><a href="#">Insumos</a></li>
-                            <li><a href="#">Associado</a></li>
-                            <li><a href="#">Associado</a></li>
+                            <li><a href="/producao/cruds">Produção</a></li>
+                            <li><a href="/insumo/cruds">Insumo</a></li>
+                            <li><a href="/requisicao_equipamento/cruds">Requisição de equipamento</a></li>
+                           
                             <li><a href="">Estoque</a></li>
                             <li><a href="#">Emprestimos</a></li>
                         </ul>

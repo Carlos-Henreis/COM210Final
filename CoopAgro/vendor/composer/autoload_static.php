@@ -8,15 +8,16 @@ class ComposerStaticInit79b121345c50e1e662daccddfdaf98b5
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -73,6 +74,7 @@ class ComposerStaticInit79b121345c50e1e662daccddfdaf98b5
         ),
         'C' => 
         array (
+            'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -191,6 +193,10 @@ class ComposerStaticInit79b121345c50e1e662daccddfdaf98b5
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
@@ -263,6 +269,9 @@ class ComposerStaticInit79b121345c50e1e662daccddfdaf98b5
         'CreateInsumosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_02_174455_create_insumos_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePresidentesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_225600_create_presidentes_table.php',
+        'CreateProducaosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_09_022432_create_producaos_table.php',
+        'CreateRequisicaoEquipamentosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_15_193543_create_requisicao_equipamentos_table.php',
+        'CreateRequisicaoequipamentosTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_15_203626_create_requisicaoequipamentos_table.php',
         'CreateTecnicosTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_31_225641_create_tecnicos_table.php',
         'CreateTestesTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_24_151046_create_testes_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

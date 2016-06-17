@@ -4,7 +4,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get ('/insumo','InsumoController@index');
+//Route::get ('/insumo','InsumoController@index');
+//Route::get ('/producao','ProducaoController@index');
+//Route::get ('/requisicao_equipamento','requisicao_equipamentoController@index');
 
 //Rotas para presidente//
 Route::group(['middleware' => 'presidente'], function() {
@@ -42,20 +44,6 @@ Route::group(['middleware' => 'tecnico'], function() {
 	Route::get('/tecnico/logout' , 'TecnicoController@logout');
 });
 
-//Rotas associados
-Route::group(['prefix'=>'associado'], function() {
-	//Rotas protegidas(somente o atendente entra)
-	Route::group(['middleware' => 'auth:atendente'], function() {
-		Route::get('',['as'=>'associado', 'uses'=>'AssociadoController@index']);
-		Route::get('create',['as'=>'associado.create', 'uses'=>'AssociadoController@create']);
-		Route::post('store',['as'=>'associado.store', 'uses'=>'AssociadoController@store']);
-		Route::get('{id}/destroy',['as'=>'associado.destroy', 'uses'=>'AssociadoController@destroy']);
-		Route::get('{id}/edit',['as'=>'associado.edit', 'uses'=>'AssociadoController@edit']);
-	 	Route::put('{id}/update',['as'=>'associado.update', 'uses'=>'AssociadoController@update']);
-	});
-
-});
-
 //rotas atendente CRUDS (Todas estão corretas)
 Route::group(['prefix'=>'atendente/cruds'], function() {
 	//Rotas protegidas(somente o presidente entra)
@@ -69,8 +57,59 @@ Route::group(['prefix'=>'atendente/cruds'], function() {
 	});
 });
 
+Route::group(['prefix'=>'insumo/cruds', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('', ['as' => 'insumo.cruds', 'uses' => 'InsumoController@index']);
+	    Route::get('create', ['as' => 'insumo.cruds.create', 'uses' => 'InsumoController@create']);
+	    Route::post('store', ['as' => 'insumo.cruds.store', 'uses' => 'InsumoController@store']);
+	    Route::get('{id}/destroy', ['as' => 'insumo.cruds.destroy', 'uses' => 'InsumoController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'insumo.cruds.edit', 'uses' => 'InsumoController@edit']);
+	    Route::put('{id}/update', ['as' => 'insumo.cruds.update', 'uses' => 'InsumoController@update']);
+	});
+});
+
+Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('', ['as' => 'producao.cruds', 'uses' => 'ProducaoController@index']);
+	    Route::get('create', ['as' => 'producao.cruds.create', 'uses' => 'ProducaoController@create']);
+	    Route::post('store', ['as' => 'producao.cruds.store', 'uses' => 'ProducaoController@store']);
+	    Route::get('{id}/destroy', ['as' => 'producao.cruds.destroy', 'uses' => 'ProducaoController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'producao.cruds.edit', 'uses' => 'ProducaoController@edit']);
+	    Route::put('{id}/update', ['as' => 'producao.cruds.update', 'uses' => 'ProducaoController@update']);
+	});
+});
+
+Route::group(['prefix'=>'requisicao_equipamento/cruds', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('', ['as' => 'requisicao_equipamento.cruds', 'uses' => 'Requisicao_equipamentoController@index']);
+	    Route::get('create', ['as' => 'requisicao_equipamento.cruds.create', 'uses' => 'Requisicao_equipamentoController@create']);
+	    Route::post('store', ['as' => 'requisicao_equipamento.cruds.store', 'uses' => 'Requisicao_equipamentoController@store']);
+	    Route::get('{id}/destroy', ['as' => 'requisicao_equipamento.cruds.destroy', 'uses' => 'Requisicao_equipamentoController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'requisicao_equipamento.cruds.edit', 'uses' => 'Requisicao_equipamentoController@edit']);
+	    Route::put('{id}/update', ['as' => 'requisicao_equipamento.cruds.update', 'uses' => 'Requisicao_equipamentoController@update']);
+	});
+});
+
+
+//Rotas associados
+Route::group(['prefix'=>'associado'], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('',['as'=>'associado.crud', 'uses'=>'AssociadoController@index']);
+		Route::get('create',['as'=>'associado.crud.create', 'uses'=>'AssociadoController@create']);
+		Route::post('store',['as'=>'associado.crud.store', 'uses'=>'AssociadoController@store']);
+		Route::get('{id}/destroy',['as'=>'associado.crud.destroy', 'uses'=>'AssociadoController@destroy']);
+		Route::get('{id}/edit',['as'=>'associado.crud.edit', 'uses'=>'AssociadoController@edit']);
+	 	Route::put('{id}/update',['as'=>'associado.crud.update', 'uses'=>'AssociadoController@update']);
+	});
+});
+
 //Rotas de um teste para testarmos
-Route::group(['prefix'=>'teste', 'where'=>['id'=>'[0-9]+']], function() {
+Route::group(['prefix'=>'teste', 'where'=>['id'=>'[0-9]+']], function()
+{
 
 	Route::get('',['as'=>'teste', 'uses'=>'testeController@index']);
 
