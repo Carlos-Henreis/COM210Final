@@ -24,7 +24,6 @@ class requisicao_equipamentoRequest extends Request
     public function rules()
     {
         return [
-        	'associado' => 'required',
         	'local' => 'required',
         	'datainicio' => 'required',
         	'horainicio' => 'required',

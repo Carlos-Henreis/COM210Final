@@ -24,11 +24,13 @@ class Requisicao_equipamentoController extends Controller
     public function store(requisicao_equipamentoRequest $request) {
         $input = $request->all();
         requisicao_equipamento::create($input);
+        \Session::flash('flash_message','Cadastrado com sucesso.');
         return redirect()->route('requisicao_equipamento.cruds');
     }
     public function destroy($id) {
         $requisicao_equipamento = requisicao_equipamento::find($id);
         $requisicao_equipamento->delete();
+        \Session::flash('flash_message','Removido com sucesso.');
         return redirect()->route('requisicao_equipamento.cruds');
     }
     
@@ -39,6 +41,7 @@ class Requisicao_equipamentoController extends Controller
     
     public function update(requisicao_equipamentoRequest $request, $id) {
         $requisicao_equipamento = requisicao_equipamento::find($id)->update($request->all());
+        \Session::flash('flash_message','Editado com sucesso.');
         return redirect()->route('requisicao_equipamento.cruds');
     }
 }
