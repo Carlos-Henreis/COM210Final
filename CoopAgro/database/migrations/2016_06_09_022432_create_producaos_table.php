@@ -14,6 +14,8 @@ class CreateProducaosTable extends Migration
     {
         Schema::create('producaos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('cpf-id');
+            $table->foreign('cpf-id')->references('cpf')->on('associados');
             $table->string('tipo');
             $table->date('previsao');
             $table->double('insumos');

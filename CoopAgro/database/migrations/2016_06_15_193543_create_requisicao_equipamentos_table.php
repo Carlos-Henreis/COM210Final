@@ -16,6 +16,7 @@ class CreateRequisicaoEquipamentosTable extends Migration
         {
             $table->increments('id');
             $table->string('tipo');
+            $table->string('servico');
             $table->string('associado');
             $table->string('local');
             $table->date('datainicio');

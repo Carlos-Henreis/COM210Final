@@ -26,6 +26,20 @@
                                 </div>
                 </div>
 
+                <div class="form-group{{ $errors->has('servico') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Serviço</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="servico" value="{{ old('servico') }}">
+
+                                @if ($errors->has('servico'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('servico') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 				<div class="form-group{{ $errors->has('associado') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Associado</label>
 
@@ -69,7 +83,7 @@
                 <div class="form-group{{ $errors->has('horainicio') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Hora de inicio de uso</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="horainicio" value="{{ old('horainicio') }}">
+                                <input type="time" class="form-control" name="horainicio" value="{{ old('horainicio') }}">
 
                                 @if ($errors->has('horainicio'))
                                     <span class="help-block">
@@ -82,7 +96,7 @@
                 <div class="form-group{{ $errors->has('tempo') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Tempo de uso</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="tempo" value="{{ old('tempo') }}">
+                                <input type="time" class="form-control" name="tempo" value="{{ old('tempo') }}">
 
                                 @if ($errors->has('tempo'))
                                     <span class="help-block">
@@ -106,9 +120,9 @@
                         </div>
 
                 <div class="form-group{{ $errors->has('valor') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Data de final</label>
+                            <label class="col-md-4 control-label">Valor</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="valor" value="{{ old('valor') }}">
+                                <input type="date" class="form-control" name="valor" value="{{ old('valor') }}">
 
                                 @if ($errors->has('valor'))
                                     <span class="help-block">

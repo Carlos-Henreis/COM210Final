@@ -24,6 +24,7 @@ class ProducaoRequest extends Request
     public function rules()
     {
         return [
+            //'cpf-id' => 'exists:coopagro, associados, cpf, NULL',
             'tipo' => 'required',
             'previsao' => 'required | after:date_from: "1998/04/03"',
             'insumos' => 'required'

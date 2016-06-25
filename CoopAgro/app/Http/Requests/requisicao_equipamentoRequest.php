@@ -24,6 +24,12 @@ class requisicao_equipamentoRequest extends Request
     public function rules()
     {
         return [
+        	'local' => 'required',
+        	'datainicio' => 'required',
+        	'horainicio' => 'required',
+        	'tempo'=> 'required',
+        	'datafim' => 'required',
+        	'valor' => 'required'
         ];
     }
 }

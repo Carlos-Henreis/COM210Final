@@ -85,7 +85,7 @@ class AtendenteController extends Controller
         return view('atendente.cruds.edit', compact('atendente'));
     }
     
-    public function update(AtendenteRequest $request, $id) {
+    public function update(Request $request, $id) {
         $atendente = Atendente::find($id)->update($request->all());
         return redirect()->route('atendente.cruds');
     }

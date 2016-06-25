@@ -18,6 +18,7 @@ class AssociadoController extends Controller {
     }
     
     public function create() {
+        \Session::flash('flash_message','Cadastrado com sucesso.');
         return view('associado.crud.create');
     }
     
@@ -35,11 +36,13 @@ class AssociadoController extends Controller {
     
     public function edit($id) {
         $associado = associado::find($id);
+        \Session::flash('flash_message','Removido com sucesso.');
         return view('associado.crud.edit', compact('associado'));
     }
     
-    public function update(associadoRequest $request, $id) {
+    public function update(Request $request, $id) {
         $associado = associado::find($id)->update($request->all());
+        \Session::flash('flash_message','Editado com sucesso.');
         return redirect()->route('associado.crud');
     }
     

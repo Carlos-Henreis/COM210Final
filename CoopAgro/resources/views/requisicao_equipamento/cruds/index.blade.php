@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>Tipo de serviço</th>
+                <th>Serviço</th>
                 <th>Associado</th>
                 <th>Local de uso</th>
                 <th>Data inicial de uso</th>
@@ -23,6 +24,7 @@
             @foreach($requisicao_equipamento as $requisicao_equipamento)
             <tr>
                 <td>{{ $requisicao_equipamento->tipo }}</td>
+                <td>{{ $requisicao_equipamento->servico }}</td>
                 <td>{{ $requisicao_equipamento->associado }}</td>
                 <td>{{ $requisicao_equipamento->local }}</td>
                 <td>{{ $requisicao_equipamento->datainicio }}</td>
@@ -39,4 +41,7 @@
         </tbody>
     </table>
 </div>
+@if(Session::has('flash_message'))
+    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+@endif
 @endsection
