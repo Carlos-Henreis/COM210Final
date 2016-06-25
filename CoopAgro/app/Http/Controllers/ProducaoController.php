@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\producao;
+use App\associado;
 use App\Http\Requests;
 use App\Http\Requests\ProducaoRequest;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,8 @@ class ProducaoController extends Controller
     	return view('producao.cruds.index', ['producao' => $producao]);
     }
     public function create(){
-    	return view('producao.cruds.create');
+        $associado = associado::all();
+    	return view('producao.cruds.create', ['associado' => $associado]);
     }
     public function store(ProducaoRequest $request) {
         $input = $request->all();
