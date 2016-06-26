@@ -10,8 +10,10 @@
         <thead>
             <tr>
                 <th>Tipo de serviço</th>
+                <th>ID da maquina</th>
                 <th>Serviço</th>
                 <th>Associado</th>
+                <th>CPF do associado</th>
                 <th>Local de uso</th>
                 <th>Data inicial de uso</th>
                 <th>Horário inicial de uso</th>
@@ -24,8 +26,10 @@
             @foreach($requisicao_equipamento as $requisicao_equipamento)
             <tr>
                 <td>{{ $requisicao_equipamento->tipo }}</td>
+                <td>{{ $requisicao_equipamento->idmaquina }}</td>
                 <td>{{ $requisicao_equipamento->servico }}</td>
                 <td>{{ $requisicao_equipamento->associado }}</td>
+                <td>{{ $requisicao_equipamento->cpf }}</td>
                 <td>{{ $requisicao_equipamento->local }}</td>
                 <td>{{ $requisicao_equipamento->datainicio }}</td>
                 <td>{{ $requisicao_equipamento->horainicio }}</td>
