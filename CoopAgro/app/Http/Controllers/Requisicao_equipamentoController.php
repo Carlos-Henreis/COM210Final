@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Requests\requisicao_equipamentoRequest;
 use App\Http\Controllers\Controller;
 
+use App\equipamento;
+use App\Http\Requests\equipamentoRequest;
+
 class Requisicao_equipamentoController extends Controller
 {
     public function __construct()
@@ -15,11 +18,11 @@ class Requisicao_equipamentoController extends Controller
     }
 
     public function index () {
-    	$requisicao_equipamento = requisicao_equipamento::all();
-    	return view('requisicao_equipamento.cruds.index', ['requisicao_equipamento' => $requisicao_equipamento]);
+        $requisicao_equipamento = requisicao_equipamento::all();
+        return view('requisicao_equipamento.cruds.index', ['requisicao_equipamento' => $requisicao_equipamento]);
     }
     public function create(){
-    	return view('requisicao_equipamento.cruds.create');
+        return view('requisicao_equipamento.cruds.create');
     }
     public function store(requisicao_equipamentoRequest $request) {
         $input = $request->all();
