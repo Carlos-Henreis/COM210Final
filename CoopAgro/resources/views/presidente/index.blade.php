@@ -80,11 +80,16 @@
                         <ul>
                             <li>Funcionários</li>
                                 <ul>
-                                    <li><a href="#">Técnicos</a></li>
+                                    <li>Técnicos</li>
                                     <li><a href="atendente/cruds">Atendentes</a></li>
                                 </ul>
-                            <li><a href="">Patrimônios</a></li>
-                            <li><a href="#">Relatórios</a></li>
+                            <li>Patrimônios</li>
+                            <li>Relatórios</li>
+                                <ul>
+                                    <li><a href="producao/relatorio">Produções</a></li>
+                                    <li>Patrimonio</li>
+                                    <li>Financeiros</li>
+                                </ul>
                         </ul>
                         
                     </div>

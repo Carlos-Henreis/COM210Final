@@ -82,6 +82,19 @@ Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function()
 	});
 });
 
+//rotas de relatorios
+Route::group(['prefix'=>'producao/relatorio', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas para os relatórios producao
+	Route::group(['middleware' => 'auth:presidente'], function() {
+
+	    Route::get('', ['as' => 'producao.relatorio', 'uses' => 'ProducaoController@relatorio']);
+	    Route::post('relatorioqual', ['as' => 'producao.relatorio.relatorioqual', 'uses' => 'ProducaoController@relatorioqual']);
+	    Route::get('tipo', ['as' => 'producao.relatorio.tipo', 'uses' => 'ProducaoController@tipo']);
+	    Route::get('associado', ['as' => 'producao.relatorio.associado', 'uses' => 'ProducaoController@associado']);
+	    Route::get('geral', ['as' => 'producao.relatorio.geral', 'uses' => 'ProducaoController@geral']);
+	});
+});
+
 Route::group(['prefix'=>'requisicao_equipamento/cruds', 'where'=>['id'=>'[0-9]+']], function() {
 	//Rotas protegidas(somente o atendente entra)
 	Route::group(['middleware' => 'auth:atendente'], function() {

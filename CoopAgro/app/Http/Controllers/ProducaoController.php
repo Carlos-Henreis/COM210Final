@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\producao;
 use App\associado;
@@ -43,4 +44,54 @@ class ProducaoController extends Controller
         $producao = Producao::find($id)->update($request->all());
         return redirect()->route('producao.cruds');
     }
+     /*
+    Funções relacionadas aos relatórios de produção
+    */
+
+    public function relatorio() {
+        return view('producao.relatorio.index');
+    }
+    public function tipo() {
+        $producao = producao::select ('tipo')->groupBy ('tipo')->get ();
+        return view('producao.relatorio.tipo', ['producao' => $producao]);
+    }
+
+    public function associado() {
+        return view('producao.relatorio.associado');
+    }
+
+    public function geral() {
+        $producao = DB::table('producaos')->select('*')->get();
+        $prevista = DB::table('producaos')
+                ->where('previsao', '>=', date('d/m/y'))
+                ->count();
+        $japroduziu = DB::table('producaos')
+                ->where('previsao', '<', date('d/m/y'))
+                ->count();
+
+        $tipo = DB::table('producaos')
+                ->orderBy('tipo')
+                ->count();
+        $associado = DB::table('producaos')
+                ->orderBy('cpfprod')
+                ->count();
+        $dados['prevista'] = $prevista;
+        $dados['japroduziu'] = $japroduziu;
+        $dados['tipo'] = $tipo;
+        $dados['associado'] = $associado;
+        
+        return view('producao.relatorio.geral', ['dados' => $dados], ['producao' => $producao]);
+    }
+
+    public function relatorioqual(Request $request) {
+        $input = $request->all();
+        if ($input['tiposDisponiveis'] == "Geral") {
+            return redirect()->route('producao.relatorio.geral');
+        }elseif ($input['tiposDisponiveis'] == "Associado") {
+            return redirect()->route('producao.relatorio.associado');
+        }elseif ($input['tiposDisponiveis'] == "Tipo") {
+            return redirect()->route('producao.relatorio.tipo');
+        }
+    }
 }
+
