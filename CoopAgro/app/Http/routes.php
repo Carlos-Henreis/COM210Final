@@ -137,4 +137,9 @@ Route::group(['prefix'=>'teste', 'where'=>['id'=>'[0-9]+']], function()
  	Route::put('{id}/update',['as'=>'teste.update', 'uses'=>'testeController@update']);
 });
 
+/*
+
+	Teste Carlos para a nova branch
+*/
+
 
