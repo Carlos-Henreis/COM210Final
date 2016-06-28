@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producao extends Model
 {
-    protected $fillable = ['cpf-id', 'tipo', 'previsao', 'insumos', 'observacoes'];
+    protected $fillable = ['cpfprod', 'tipo', 'previsao', 'insumos', 'observacoes'];
     
     public function associaAssociado () {
         return $this->belongsTo('App\Associado');
