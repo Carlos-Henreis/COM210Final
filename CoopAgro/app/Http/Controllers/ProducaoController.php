@@ -61,25 +61,52 @@ class ProducaoController extends Controller
     }
 
     public function geral() {
+
         $producao = DB::table('producaos')->select('*')->get();
+
+        $tipos = producao::select ('tipo')->groupBy ('tipo')->get();
+
+        $qtdmax = -1;
+
+        for ($i=0; $i < count($tipos); $i++) { 
+            $qtd = producao::select ('tipo')
+                ->where('tipo', 'like', $tipos[$i]->tipo)
+                ->count();
+            $tiposgraf[$i] =  $tipos[$i]->tipo;
+            $qtdgraf[$i] = $qtd;
+
+        }
+        
+        for ($i=0; $i < count($tipos); $i++) { 
+            $qtd = producao::select ('tipo')
+                ->where('tipo', 'like', $tipos[$i]->tipo)
+                ->count();
+            if ($qtdmax <= $qtd) {
+                $qtdmax = $qtd;
+                $tipo = $tipos[$i]->tipo;
+            }
+        }
+        $associado = producao::select ('cpfprod')->groupBy ('cpfprod')->get ();
+        $datahoje = date("Y/n/j");       
         $prevista = DB::table('producaos')
-                ->where('previsao', '>=', date('d/m/y'))
+                ->where('previsao', '>=', $datahoje)
                 ->count();
         $japroduziu = DB::table('producaos')
-                ->where('previsao', '<', date('d/m/y'))
+                ->where('previsao', '<', $datahoje)
                 ->count();
-
-        $tipo = DB::table('producaos')
-                ->orderBy('tipo')
-                ->count();
-        $associado = DB::table('producaos')
-                ->orderBy('cpfprod')
-                ->count();
+        $datahoje = date("j/n/Y");
         $dados['prevista'] = $prevista;
         $dados['japroduziu'] = $japroduziu;
+        $dados['maxproduzido'] = $qtdmax;
         $dados['tipo'] = $tipo;
-        $dados['associado'] = $associado;
-        
+        $dados['associado'] = count($associado);
+        $dados['qtdtipo'] = count($tipos);
+        $dados['hj'] = $datahoje;
+
+        $dados['qtdtotal'] = $prevista+$japroduziu;
+        $dados['tiposgraf'] = $tiposgraf;
+        $dados['qtdgraf'] = $qtdgraf;
+
         return view('producao.relatorio.geral', ['dados' => $dados], ['producao' => $producao]);
     }
 
