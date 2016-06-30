@@ -11,7 +11,7 @@
             <tr>
                 <th>Tipo de produção</th>
                 <th>Previsão da produção</th>
-                <th>Insumos necessários</th>
+                <th>Produtor</th>
                 <th>Observações</th>
                 <th>Ações</th>
             </tr>
@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $producao->tipo }}</td>
                 <td>{{ $producao->previsao }}</td>
-                <td>{{ $producao->insumos }}</td>
+                <td>{{ $producao->cpfprod }}</td>
                 <td>{{ $producao->observacoes }}</td>
                 <td>
                     <a href="{{ route('producao.cruds.edit',['id'=>$producao->id]) }}" class="btn-sm btn-success">Editar</a>

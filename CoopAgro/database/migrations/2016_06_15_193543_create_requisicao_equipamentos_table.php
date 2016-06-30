@@ -15,6 +15,8 @@ class CreateRequisicaoEquipamentosTable extends Migration
         Schema::create('requisicao_equipamentos', function (Blueprint $table)
         {
             $table->increments('id');
+            $table->string('idmaquina');
+            $table->string('cpf');
             $table->string('tipo');
             $table->string('servico');
             $table->string('associado');

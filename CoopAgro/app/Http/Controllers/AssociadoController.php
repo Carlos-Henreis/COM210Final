@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Requests\AssociadoRequest;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\requisicao_equipamentoRequest;
+use App\requisicao_equipamento;
+
 class AssociadoController extends Controller {
     
     public function __construct(){}
@@ -30,13 +33,19 @@ class AssociadoController extends Controller {
     
     public function destroy($id) {
         $associado = associado::find($id);
+
+        if(requisicao_equipamento::where('cpf', '=', associado::find($id)->cpf)->exists())
+        {
+            \Session::flash('flash_message','Associado possuí emprestimo de equipamento, não é possivel remover.');
+            return redirect()->route('associado.crud');
+        }
+        \Session::flash('flash_message','Removido com sucesso.');
         $associado->delete();
         return redirect()->route('associado.crud');
     }
     
     public function edit($id) {
         $associado = associado::find($id);
-        \Session::flash('flash_message','Removido com sucesso.');
         return view('associado.crud.edit', compact('associado'));
     }
     

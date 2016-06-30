@@ -11,19 +11,26 @@
 		  <form class="form-horizontal" role="form" method="POST" action="{{ url('/producao/cruds/store') }}">
                         {{ csrf_field() }}
 
-		 		<div class="form-group{{ $errors->has('cpf-id') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Associado (CPF)</label>
+		 		<div class="form-group{{ $errors->has('cpfprod') ? ' has-error' : '' }}">
+                    <label class="col-md-4 control-label">Associado (CPF)</label>
 
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="cpf-id" value="{{ old('cpf-id') }}">
+                    <div class="col-md-2">
+                        
+                        <select class="form-control" name="cpfprod" value="{{ old('cpfprod') }}">                        
+                            <option disabled selected value>Selecione</option>
+                            @foreach ($associado as $associado)
+                                <option>{{ $associado->cpf }}</option>                               
+                            @endforeach
+                        </select>
+                        
+                        @if ($errors->has('cpfprod'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('cpfprod') }}</strong>
+                            </span>
+                        @endif
 
-                                @if ($errors->has('cpf-id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cpf-id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
 		 		<div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Tipo</label>

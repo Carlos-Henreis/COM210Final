@@ -6,13 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateAssociadosTable' => $baseDir . '/database/migrations/2016_06_07_185926_create_associados_table.php',
     'CreateAtendentesTable' => $baseDir . '/database/migrations/2016_05_31_225627_create_atendentes_table.php',
+    'CreateEquipamentosTable' => $baseDir . '/database/migrations/2016_06_25_235807_create_equipamentos_table.php',
     'CreateInsumosTable' => $baseDir . '/database/migrations/2016_06_02_174455_create_insumos_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePresidentesTable' => $baseDir . '/database/migrations/2016_05_31_225600_create_presidentes_table.php',
     'CreateProducaosTable' => $baseDir . '/database/migrations/2016_06_09_022432_create_producaos_table.php',
     'CreateRequisicaoEquipamentosTable' => $baseDir . '/database/migrations/2016_06_15_193543_create_requisicao_equipamentos_table.php',
-    'CreateRequisicaoequipamentosTable' => $baseDir . '/database/migrations/2016_06_15_203626_create_requisicaoequipamentos_table.php',
     'CreateTecnicosTable' => $baseDir . '/database/migrations/2016_05_31_225641_create_tecnicos_table.php',
     'CreateTestesTable' => $baseDir . '/database/migrations/2016_05_24_151046_create_testes_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

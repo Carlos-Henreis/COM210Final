@@ -7,6 +7,7 @@ Route::get('/', function () {
 //Route::get ('/insumo','InsumoController@index');
 //Route::get ('/producao','ProducaoController@index');
 //Route::get ('/requisicao_equipamento','requisicao_equipamentoController@index');
+//Route::get ('/equipamento','equipamentoController@index');
 
 //Rotas para presidente//
 Route::group(['middleware' => 'presidente'], function() {
@@ -81,6 +82,19 @@ Route::group(['prefix'=>'producao/cruds', 'where'=>['id'=>'[0-9]+']], function()
 	});
 });
 
+//rotas de relatorios
+Route::group(['prefix'=>'producao/relatorio', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas para os relatórios producao
+	Route::group(['middleware' => 'auth:presidente'], function() {
+
+	    Route::get('', ['as' => 'producao.relatorio', 'uses' => 'ProducaoController@relatorio']);
+	    Route::post('relatorioqual', ['as' => 'producao.relatorio.relatorioqual', 'uses' => 'ProducaoController@relatorioqual']);
+	    Route::get('tipo', ['as' => 'producao.relatorio.tipo', 'uses' => 'ProducaoController@tipo']);
+	    Route::get('associado', ['as' => 'producao.relatorio.associado', 'uses' => 'ProducaoController@associado']);
+	    Route::get('geral', ['as' => 'producao.relatorio.geral', 'uses' => 'ProducaoController@geral']);
+	});
+});
+
 Route::group(['prefix'=>'requisicao_equipamento/cruds', 'where'=>['id'=>'[0-9]+']], function() {
 	//Rotas protegidas(somente o atendente entra)
 	Route::group(['middleware' => 'auth:atendente'], function() {
@@ -93,6 +107,17 @@ Route::group(['prefix'=>'requisicao_equipamento/cruds', 'where'=>['id'=>'[0-9]+'
 	});
 });
 
+Route::group(['prefix'=>'equipamento/cruds', 'where'=>['id'=>'[0-9]+']], function() {
+	//Rotas protegidas(somente o atendente entra)
+	Route::group(['middleware' => 'auth:atendente'], function() {
+		Route::get('', ['as' => 'equipamento.cruds', 'uses' => 'equipamentoController@index']);
+	    Route::get('create', ['as' => 'equipamento.cruds.create', 'uses' => 'equipamentoController@create']);
+	    Route::post('store', ['as' => 'equipamento.cruds.store', 'uses' => 'equipamentoController@store']);
+	    Route::get('{id}/destroy', ['as' => 'equipamento.cruds.destroy', 'uses' => 'equipamentoController@destroy']);
+	    Route::get('{id}/edit', ['as' => 'equipamento.cruds.edit', 'uses' => 'equipamentoController@edit']);
+	    Route::put('{id}/update', ['as' => 'equipamento.cruds.update', 'uses' => 'equipamentoController@update']);
+	});
+});
 
 //Rotas associados
 Route::group(['prefix'=>'associado'], function() {
@@ -124,5 +149,10 @@ Route::group(['prefix'=>'teste', 'where'=>['id'=>'[0-9]+']], function()
 
  	Route::put('{id}/update',['as'=>'teste.update', 'uses'=>'testeController@update']);
 });
+
+/*
+
+	Teste Carlos para a nova branch
+*/
 
 

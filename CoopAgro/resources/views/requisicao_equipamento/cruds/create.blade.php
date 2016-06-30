@@ -40,7 +40,7 @@
                             </div>
                         </div>
 
-				<div class="form-group{{ $errors->has('associado') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('associado') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Associado</label>
 
                             <div class="col-md-6">
@@ -49,6 +49,35 @@
                                 @if ($errors->has('associado'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('associado') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                   
+                        </div>
+
+                <div class="form-group{{ $errors->has('idmaquina') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">ID da maquina</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="idmaquina" value="{{ old('idmaquina') }}">
+
+                                @if ($errors->has('idmaquina'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('idmaquina') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+				<div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">CPF do associado</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="cpf" value="{{ old('cpf') }}">
+
+                                @if ($errors->has('cpf'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cpf') }}</strong>
                                     </span>
                                 @endif
                             </div>
